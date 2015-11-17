@@ -1,0 +1,31 @@
+<! DOCTYPE html>
+<html>
+<head>
+	<title>Model Yaratma</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="assets/screen.css">
+<script type="text/javascript" src="assets/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+<script type="text/javascript" src="http://backbonejs.org/backbone-min.js"></script>
+<!--<script type="text/javascript" src="assets/custom.js"></script>-->
+</head>
+<body>
+<script type="text/javascript">
+var Insan = Backbone.Model.extend({
+	initialize: function(){
+		console.log("İnsan modeli yaratıldı.")
+	}
+});
+
+// Emre'nin özelliklerini belirtiyorum.
+var emre = new Insan({name:"Emre", bornDate: "1993", sex: "Erkek"});
+
+var emre = new Insan();
+// Emre'nin özelliklerini değiştiriyorum.
+emre.set({name:"Reyiz", bornDate:"1992"})
+
+</script>
+<p>Bu sayfada 1 adet özellikleri bulunmayan model yarattım. Daha sonrasında bu modeli set ederek özelliklerini değiştirdim.</p>
+	<p>Konsol içerisinde görebilirsin.</p>
+</body>
+</html>

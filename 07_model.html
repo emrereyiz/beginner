@@ -1,0 +1,31 @@
+<! DOCTYPE html>
+<html>
+<head>
+	<title>Model Yaratma</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="assets/screen.css">
+<script type="text/javascript" src="assets/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+<script type="text/javascript" src="http://backbonejs.org/backbone-min.js"></script>
+<!--<script type="text/javascript" src="assets/custom.js"></script>-->
+</head>
+<body>
+<script type="text/javascript">
+
+var Insan = Backbone.Model.extend({
+	default: {
+		name: 'Reyiz',
+		age: '22'
+	},
+	initialize: function(){
+		console.log("Model oluşturuldu.");
+	}
+})
+var emre = new Insan({ name: "Reyiz", age: 25});
+var reyiz = new Insan({ name: "emre", age: 22});
+var attributes = emre.toJSON();
+console.log(attributes)
+
+</script>
+</body>
+</html>

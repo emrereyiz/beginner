@@ -1,0 +1,55 @@
+<! DOCTYPE html>
+<html>
+<head>
+	<title>Model Yaratma</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="assets/screen.css">
+<script type="text/javascript" src="assets/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+<script type="text/javascript" src="http://backbonejs.org/backbone-min.js"></script>
+<!--<script type="text/javascript" src="assets/custom.js"></script>-->
+</head>
+<body>
+<script type="text/javascript">
+
+
+var userModel = Backbone.Model.extend({
+	urlRoot: '/user',
+	defaults:{
+		name: '',
+		email: ''
+	},
+	initialize: function(){
+		console.log("kullanıcı oluşturuldu")
+	}
+});
+
+var user = new userModel();
+
+var userDetail = {
+	name: 'Reyiz',
+	email: 'kklemre@gmail.com'
+};
+
+user.save(userDetail, {
+	success: function(user){
+		alert(JSON.stringify(user));
+	}
+});
+
+// Here we have set the `id` of the model
+var user = new userModel({id: 1});
+
+// The fetch below will perform GET /user/1
+// The server should return the id, name and email from the database
+user.fetch({
+    success: function (user) {
+        alert(JSON.stringify(user));
+    }
+})
+
+</script>
+<p>Bu sayfada 1 adet varsayılan 2 tane özelliği bulunan model oluşturdum. "initalize" fonksiyonu ile "this" diyerek "on change" event'i ile model'i parametre geçerek "get" ile model adını aldırdım. Burda 'change' event'ini kullanma amacım eğer model'in "name" özelliği değişirse knosola yazı bastırmak. 31. satırda model'i set ederek ismini değiştirdim.</p>
+
+</body>
+</html>

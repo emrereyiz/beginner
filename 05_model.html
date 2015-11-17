@@ -1,0 +1,39 @@
+<! DOCTYPE html>
+<html>
+<head>
+	<title>Model Yaratma</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="assets/screen.css">
+<script type="text/javascript" src="assets/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+<script type="text/javascript" src="http://backbonejs.org/backbone-min.js"></script>
+<!--<script type="text/javascript" src="assets/custom.js"></script>-->
+</head>
+<body>
+<script type="text/javascript">
+
+var Insan = Backbone.Model.extend({
+	defaults: {
+		name: 'Emre',
+		age: 0
+	},
+	initialize: function(){
+		console.log("Insan modeli oluşturuldu.");
+		this.on("change:name", function(model){
+			var name = model.get("name"); // Emre
+			console.log("Model ismi " + name + " olarak değiştirildi.");
+		})
+	}
+});
+
+var emre = new Insan({name:'Emre', age:'22'});
+
+emre.set({name: 'Reyiz'});
+
+
+
+</script>
+<p>Bu sayfada 1 adet varsayılan 2 tane özelliği bulunan model oluşturdum. "initalize" fonksiyonu ile "this" diyerek "on change" event'i ile model'i parametre geçerek "get" ile model adını aldırdım. Burda 'change' event'ini kullanma amacım eğer model'in "name" özelliği değişirse knosola yazı bastırmak. 31. satırda model'i set ederek ismini değiştirdim.</p>
+
+</body>
+</html>

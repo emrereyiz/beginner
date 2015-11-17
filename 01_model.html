@@ -1,0 +1,43 @@
+<! DOCTYPE html>
+<html>
+<head>
+	<title>Model Yaratma</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="assets/screen.css">
+<script type="text/javascript" src="assets/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+<script type="text/javascript" src="http://backbonejs.org/backbone-min.js"></script>
+<!--<script type="text/javascript" src="assets/custom.js"></script>-->
+</head>
+<body>
+<script type="text/javascript">
+	var Insan = Backbone.Model.extend({
+		initialize: function(){
+			console.log("Ben bir insanım.")
+		}
+	});
+
+	var Hayvan = Backbone.Model.extend({
+		initialize: function(){
+			console.log("Ben bir hayvanım.")
+		}
+	});
+
+	var Bitki = Backbone.Model.extend({
+		initialize: function(){
+			console.log("Ben bir bitkiyim.")
+		}
+	});
+
+	var emre = new Insan();
+	var agac = new Bitki();
+
+	setTimeout(function(){
+		var boga = new Hayvan();
+	}, 1000)
+
+</script>
+<p>Bu sayfada 3 adet özelliği bulunmayan model yarattım.</p>
+	<p>Konsol içerisinde görebilirsin.</p>
+</body>
+</html>

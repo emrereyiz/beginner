@@ -1,0 +1,36 @@
+<! DOCTYPE html>
+<html>
+<head>
+	<title>Model Yaratma</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="assets/screen.css">
+<script type="text/javascript" src="assets/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+<script type="text/javascript" src="http://backbonejs.org/backbone-min.js"></script>
+<!--<script type="text/javascript" src="assets/custom.js"></script>-->
+</head>
+<body>
+<script type="text/javascript">
+
+var Insan = Backbone.Model.extend({
+	validate: function(attributes){
+		if(attributes.age < 0 && attributes.name != "Reyiz"){
+			return "Yaşın ve ismin uygun değil.";
+		}
+	},
+	initialize: function(){
+		//var name = this.get("name")
+		alert("Hoşgeldin " + name);
+		this.bind("error", function(model, error){
+			alert(error);
+		});
+	}
+});
+
+var emre = new Insan();
+emre.set({name:"Emre Köklü", age: -1}); // Hatalı
+emre.set({name:"Reyiz Köklü", age: 22}); // Hatasız
+
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<! DOCTYPE html>
+<html>
+<head>
+	<title>Model Yaratma</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="assets/screen.css">
+<script type="text/javascript" src="assets/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+<script type="text/javascript" src="http://backbonejs.org/backbone-min.js"></script>
+<!--<script type="text/javascript" src="assets/custom.js"></script>-->
+</head>
+<body>
+<script type="text/javascript">
+
+var Insan = Backbone.Model.extend({
+	defaults: {
+		name: 'Emre',
+		age: 0,
+		gender: ''
+	},
+	initialize: function(){
+		console.log("İnsan modeli oluşturuldu.");
+	},
+	nameUpdate: function(newName){
+		this.set({name: newName});
+	}
+});
+
+var reyiz = new Insan();
+reyiz.nameUpdate("reyiz");
+
+var newName = reyiz.get("name");
+console.log(newName);
+
+
+
+</script>
+<p>Bu sayfada 1 adet varsayılan 3 tane özelliği bulunan model oluşturdum. "nameUpdate" adında bir metod ile modelin ismini değiştirdim. Modeli atadıktan sonra oluşturduğum fonksiyonu çağırıp konsola bastırdım.</p>
+
+</body>
+</html>
